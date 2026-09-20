@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,40 +8,71 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="container">
 
-        <h1>My Study Space 🎀</h1>
-        <p>Your Personal Student Dashboard</p>
+        <h1>🎓 My Study Space</h1>
+        <p>Procedural Programming Version</p>
 
-        <hr>
-
-        <h2>Welcome, Student! 💗</h2>
-        <p>Stay organized and enjoy studying!</p>
-
-        <h3>📚 Study Tools</h3>
+        <h2>Welcome to My Study Space! 💗</h2>
+        <p>Your simple dashboard for school tasks and study tools.</p>
 
         <div class="tools">
 
+            <!-- Class Schedule -->
             <div class="tool">
-                <h3>📅 Class Schedule</h3>
-                <p>Organize your classes.</p>
+                <h3>📚 Class Schedule</h3>
+                <p>Keep track of your classes and subjects.</p>
             </div>
 
+            <!-- To-Do List -->
             <div class="tool">
-                <h3>📝 To-Do List</h3>
-                <p>Keep track of your tasks.</p>
+                <h3>📝 My To-Do List</h3>
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter your school task"
+                >
+
+                <button onclick="addTask()">Add Task</button>
+
+                <ul id="taskList"></ul>
             </div>
 
+            <!-- Study Timer -->
             <div class="tool">
                 <h3>⏰ Study Timer</h3>
-                <p>Manage your study time.</p>
+                <p>Use a timer to manage your study time.</p>
+
+                <h2 id="timer">25:00</h2>
+
+                <button onclick="startTimer()">Start</button>
+                <button onclick="resetTimer()">Reset</button>
             </div>
 
+            <!-- Grade Calculator -->
             <div class="tool">
                 <h3>🧮 Grade Calculator</h3>
-                <p>Check your grades.</p>
+                <p>Calculate your average grade.</p>
+
+                <input
+                    type="number"
+                    id="grade1"
+                    placeholder="Enter first grade"
+                >
+
+                <input
+                    type="number"
+                    id="grade2"
+                    placeholder="Enter second grade"
+                >
+
+                <button onclick="calculateGrade()">Calculate</button>
+
+                <p id="gradeResult"></p>
             </div>
 
         </div>
