@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Study Space - OOP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <h1>My Study Space</h1>
+        <p>Object-Oriented Programming Version</p>
+
+        <h2>Welcome to My Study Space!</h2>
+        <p>Your simple dashboard for school tasks and study tools.</p>
+
+        <!-- Customization -->
+        <div class="customization">
+
+            <button onclick="studySpace.toggleDarkMode()">
+                Dark Mode
+            </button>
+
+            <div class="color-picker">
+
+                <p>Choose your Study Space theme</p>
+
+                <button onclick="studySpace.changeBackgroundColor('#F3E9DC')">
+                    Mocha
+                </button>
+
+                <button onclick="studySpace.changeBackgroundColor('#F5E6D3')">
+                    Latte
+                </button>
+
+                <button onclick="studySpace.changeBackgroundColor('#DDE5D5')">
+                    Matcha
+                </button>
+
+                <button onclick="studySpace.changeBackgroundColor('#E8D3D3')">
+                    Dusty Rose
+                </button>
+
+                <button onclick="studySpace.changeBackgroundColor('#DDD6E8')">
+                    Lavender
+                </button>
+
+                <button onclick="studySpace.changeBackgroundColor('#D7E5E8')">
+                    Soft Blue
+                </button>
+
+                <button onclick="studySpace.changeBackgroundColor('#D8E2D5')">
+                    Sage
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Study Tools -->
+        <div class="tools">
+
+            <!-- Student Information -->
+            <div class="tool">
+
+                <h3>Student Information</h3>
+
+                <input type="text" id="studentName" placeholder="Enter your name">
+
+                <input type="text" id="studentID" placeholder="Enter your student ID">
+
+                <input type="text" id="course" placeholder="Enter your course">
+
+                <input type="text" id="yearLevel" placeholder="Enter your year level">
+
+                <button onclick="studySpace.saveStudentInfo()">
+                    Save Information
+                </button>
+
+                <p id="studentResult"></p>
+
+            </div>
+
+
+            <!-- Class Schedule -->
+            <div class="tool">
+
+                <h3>Class Schedule</h3>
+
+                <input type="text" id="subject" placeholder="Enter subject">
+
+                <input type="text" id="classDay" placeholder="Enter day">
+
+                <input type="text" id="classTime" placeholder="Enter time">
+
+                <button onclick="studySpace.addClass()">
+                    Add Class
+                </button>
+
+                <ul id="scheduleList"></ul>
+
+            </div>
+
+
+            <!-- Fees Calculator -->
+            <div class="tool">
+
+                <h3>Fees Calculator</h3>
+
+                <input type="number" id="tuitionFee" placeholder="Enter tuition fee">
+
+                <input type="number" id="miscFee" placeholder="Enter miscellaneous fee">
+
+                <input type="number" id="otherFee" placeholder="Enter other fee">
+
+                <button onclick="studySpace.calculateFees()">
+                    Calculate Total
+                </button>
+
+                <p id="feesResult"></p>
+
+            </div>
+
+
+            <!-- GPA Calculator -->
+            <div class="tool">
+
+                <h3>GPA Calculator</h3>
+
+                <input type="number" id="gpa1" placeholder="Enter first grade">
+
+                <input type="number" id="gpa2" placeholder="Enter second grade">
+
+                <input type="number" id="gpa3" placeholder="Enter third grade">
+
+                <button onclick="studySpace.calculateGPA()">
+                    Calculate GPA
+                </button>
+
+                <p id="gpaResult"></p>
+
+            </div>
+
+
+            <!-- Study Notes -->
+            <div class="tool">
+
+                <h3>Study Notes</h3>
+
+                <input type="text" id="noteInput" placeholder="Enter your study note">
+
+                <button onclick="studySpace.addNote()">
+                    Add Note
+                </button>
+
+                <ul id="notesList"></ul>
+
+            </div>
+
+
+            <!-- Reminders -->
+            <div class="tool">
+
+                <h3>Reminders</h3>
+
+                <input type="text" id="reminderInput" placeholder="Enter your reminder">
+
+                <input type="time" id="reminderTime">
+
+                <button onclick="studySpace.setReminder()">
+                    Set Reminder
+                </button>
+
+                <p id="reminderResult"></p>
+
+            </div>
+
+
+            <!-- To-Do List -->
+            <div class="tool">
+
+                <h3>My To-Do List</h3>
+
+                <input type="text" id="taskInput" placeholder="Enter your school task">
+
+                <button onclick="studySpace.addTask()">
+                    Add Task
+                </button>
+
+                <ul id="taskList"></ul>
+
+            </div>
+
+
+            <!-- Study Timer -->
+            <div class="tool">
+
+                <h3>Study Timer</h3>
+
+                <p>Use a timer to manage your study time.</p>
+
+                <h2 id="timer">25:00</h2>
+
+                <button onclick="studySpace.startTimer()">
+                    Start
+                </button>
+
+                <button onclick="studySpace.resetTimer()">
+                    Reset
+                </button>
+
+            </div>
+
+
+            <!-- Grade Calculator -->
+            <div class="tool">
+
+                <h3>Grade Calculator</h3>
+
+                <p>Calculate your average grade.</p>
+
+                <input type="number" id="grade1" placeholder="Enter first grade">
+
+                <input type="number" id="grade2" placeholder="Enter second grade">
+
+                <button onclick="studySpace.calculateGrade()">
+                    Calculate
+                </button>
+
+                <p id="gradeResult"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

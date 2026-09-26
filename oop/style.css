@@ -1,1 +1,295 @@
+/* My Study Space - OOP Version */
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+    background-color: #F3E9DC;
+    color: #5C4033;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Main Container */
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* Header */
+
+.container > h1 {
+    text-align: center;
+    color: #70543E;
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.container > p {
+    text-align: center;
+    color: #806750;
+}
+
+.container > h2 {
+    text-align: center;
+    color: #8B6B4A;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+
+/* Customization */
+
+.customization {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: #FFFDF8;
+    border-radius: 18px;
+    border: 1px solid #DCC8B4;
+    box-shadow: 0 4px 10px #D8C4AF;
+    text-align: center;
+}
+
+.customization > button {
+    margin-bottom: 10px;
+}
+
+.color-picker {
+    margin-top: 10px;
+}
+
+.color-picker p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #70543E;
+}
+
+
+/* Theme Buttons */
+
+.color-picker button {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.color-picker button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Tools Layout */
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+    align-items: start;
+}
+
+
+/* Tool Cards */
+
+.tool {
+    background-color: #FFFDF8;
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid #DCC8B4;
+    box-shadow: 0 4px 10px #D8C4AF;
+}
+
+
+/* Tool Titles */
+
+.tool h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #8B6B4A;
+    font-size: 21px;
+}
+
+
+/* Paragraphs */
+
+.tool p {
+    color: #806750;
+    line-height: 1.5;
+}
+
+
+/* Input Fields */
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    border: 1px solid #CBB39A;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #FAF5EF;
+    color: #5C4033;
+}
+
+input:focus {
+    outline: none;
+    border-color: #A98467;
+}
+
+input::placeholder {
+    color: #A18A74;
+}
+
+
+/* Buttons */
+
+button {
+    background-color: #A98467;
+    color: #FFFFFF;
+    border: none;
+    padding: 11px 16px;
+    margin: 6px 3px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #70543E;
+    transform: translateY(-1px);
+}
+
+
+/* Lists */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+li {
+    background-color: #F3E9DC;
+    margin: 7px 0;
+    padding: 10px;
+    border-radius: 8px;
+    color: #5C4033;
+    overflow-wrap: anywhere;
+}
+
+
+/* Results */
+
+#studentResult,
+#feesResult,
+#gpaResult,
+#reminderResult,
+#gradeResult {
+    font-weight: bold;
+    color: #70543E;
+}
+
+
+/* Study Timer */
+
+#timer {
+    text-align: center;
+    font-size: 40px;
+    color: #8B6B4A;
+    margin: 15px 0;
+}
+
+
+/* Dark Mode */
+
+.dark-mode {
+    background-color: #2F2925;
+    color: #F3E9DC;
+}
+
+.dark-mode .container > h1,
+.dark-mode .container > h2,
+.dark-mode .container > p,
+.dark-mode .tool h3,
+.dark-mode .tool p {
+    color: #F3E9DC;
+}
+
+.dark-mode .tool,
+.dark-mode .customization {
+    background-color: #403731;
+    border-color: #6B584C;
+    box-shadow: none;
+}
+
+.dark-mode input {
+    background-color: #51463E;
+    color: #FFFFFF;
+    border-color: #806D5F;
+}
+
+.dark-mode input::placeholder {
+    color: #D8C4AF;
+}
+
+.dark-mode li {
+    background-color: #51463E;
+    color: #F3E9DC;
+}
+
+.dark-mode #timer {
+    color: #F3E9DC;
+}
+
+.dark-mode #studentResult,
+.dark-mode #feesResult,
+.dark-mode #gpaResult,
+.dark-mode #reminderResult,
+.dark-mode #gradeResult {
+    color: #F3E9DC;
+}
+
+
+/* Tablet */
+
+@media (max-width: 800px) {
+
+    .tools {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* Phone */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .container > h1 {
+        font-size: 30px;
+    }
+
+    .tool {
+        padding: 18px;
+    }
+
+    .color-picker button {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+}
