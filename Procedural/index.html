@@ -13,23 +13,58 @@
 
     <div class="container">
 
-        <h1>🎓 My Study Space</h1>
+        <h1>My Study Space</h1>
         <p>Procedural Programming Version</p>
 
-        <h2>Welcome to My Study Space! 💗</h2>
+        <h2>Welcome to My Study Space!</h2>
         <p>Your simple dashboard for school tasks and study tools.</p>
 
         <div class="tools">
 
+            <!-- Student Information -->
+            <div class="tool">
+                <h3>Student Information</h3>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your name"
+                    >
+
+                <input
+                    type="text"
+                    id="studentID"
+                    placeholder="Enter your student ID"
+                    >
+
+                <input
+                    type="text"
+                    id="course"
+                    placeholder="Enter your course"
+                    >
+
+                <input
+                    type="text"
+                    id="yearLevel"
+                    placeholder="Enter your year level"
+                    >
+
+                <button onclick="saveStudentInfo()">
+                    Save Information
+                </button>
+
+                <p id="studentResult"</p>
+            </div>
+            
             <!-- Class Schedule -->
             <div class="tool">
-                <h3>📚 Class Schedule</h3>
+                <h3>Class Schedule</h3>
                 <p>Keep track of your classes and subjects.</p>
             </div>
 
             <!-- To-Do List -->
             <div class="tool">
-                <h3>📝 My To-Do List</h3>
+                <h3>My To-Do List</h3>
 
                 <input
                     type="text"
@@ -44,7 +79,7 @@
 
             <!-- Study Timer -->
             <div class="tool">
-                <h3>⏰ Study Timer</h3>
+                <h3>Study Timer</h3>
                 <p>Use a timer to manage your study time.</p>
 
                 <h2 id="timer">25:00</h2>
