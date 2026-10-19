@@ -386,6 +386,21 @@ class StudySpace {
         }
     }
 
+        // Clear All Tasks
+    clearTasks() {
+        if (this.tasks.length === 0) {
+            alert("There are no tasks to clear!");
+            return;
+        }
+
+        let confirmClear = confirm("Are you sure you want to clear all tasks?");
+
+        if (confirmClear) {
+            this.tasks = [];
+            this.displayTasks();
+        }
+    }
+
 
     // Study Timer
     startTimer() {
