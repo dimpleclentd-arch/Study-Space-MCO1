@@ -74,17 +74,34 @@ function displaySchedule() {
 }
 
 // Fees Calculator
+
 function calculateFees() {
-    let tuitionFee = Number(document.getElementById("tuitionFee").value);
-    let miscFee = Number(document.getElementById("miscFee").value);
-    let otherFee = Number(document.getElementById("otherFee").value);
+    let tuitionInput = document.getElementById("tuitionFee").value;
+    let miscInput = document.getElementById("miscFee").value;
+    let otherInput = document.getElementById("otherFee").value;
 
     if (
-        document.getElementById("tuitionFee").value === "" ||
-        document.getElementById("miscFee").value === "" ||
-        document.getElementById("otherFee").value === ""
+        tuitionInput.trim() === "" ||
+        miscInput.trim() === "" ||
+        otherInput.trim() === ""
     ) {
         alert("Please enter all fees!");
+        return;
+    }
+
+    let tuitionFee = Number(tuitionInput);
+    let miscFee = Number(miscInput);
+    let otherFee = Number(otherInput);
+
+    if (
+        !Number.isFinite(tuitionFee) ||
+        !Number.isFinite(miscFee) ||
+        !Number.isFinite(otherFee) ||
+        tuitionFee < 0 ||
+        miscFee < 0 ||
+        otherFee < 0
+    ) {
+        alert("Please enter valid fees. Negative values are not allowed!");
         return;
     }
 
@@ -93,6 +110,7 @@ function calculateFees() {
     document.getElementById("feesResult").textContent =
         "Total Fees: ₱" + totalFees.toFixed(2);
 }
+
 
 // GPA Calculator
 function calculateGPA() {
@@ -115,15 +133,22 @@ function calculateGPA() {
         "Your GPA is: " + gpa.toFixed(2);
 }
 
-// Study Notes
-let notes = [];
 
 function addNote() {
     let noteInput = document.getElementById("noteInput");
-    let note = noteInput.value;
+    let note = noteInput.value.trim();
 
-    if (note.trim() === "") {
+    if (note === "") {
         alert("Please enter a note!");
+        return;
+    }
+
+    let duplicateNote = notes.some((item) =>
+        item.toLowerCase() === note.toLowerCase()
+    );
+
+    if (duplicateNote) {
+        alert("This note already exists!");
         return;
     }
 
@@ -132,20 +157,6 @@ function addNote() {
     displayNotes();
 
     noteInput.value = "";
-}
-
-function displayNotes() {
-    let notesList = document.getElementById("notesList");
-
-    notesList.innerHTML = "";
-
-    for (let i = 0; i < notes.length; i++) {
-        let li = document.createElement("li");
-
-        li.textContent = notes[i];
-
-        notesList.appendChild(li);
-    }
 }
 
 // Reminders
