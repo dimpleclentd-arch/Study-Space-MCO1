@@ -297,15 +297,29 @@ function resetTimer() {
 
 
 // Grade Calculator
+
 function calculateGrade() {
-    let grade1 = Number(document.getElementById("grade1").value);
-    let grade2 = Number(document.getElementById("grade2").value);
+    let grade1Input = document.getElementById("grade1").value;
+    let grade2Input = document.getElementById("grade2").value;
 
     if (
-        document.getElementById("grade1").value === "" ||
-        document.getElementById("grade2").value === ""
+        grade1Input.trim() === "" ||
+        grade2Input.trim() === ""
     ) {
         alert("Please enter both grades!");
+        return;
+    }
+
+    let grade1 = Number(grade1Input);
+    let grade2 = Number(grade2Input);
+
+    if (
+        !Number.isFinite(grade1) ||
+        !Number.isFinite(grade2) ||
+        grade1 < 0 || grade1 > 100 ||
+        grade2 < 0 || grade2 > 100
+    ) {
+        alert("Please enter grades from 0 to 100!");
         return;
     }
 
