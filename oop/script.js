@@ -59,6 +59,17 @@ class StudySpace {
             return;
         }
 
+        let duplicateClass = this.schedule.some((item) =>
+            item.subject.toLowerCase() === subject.toLowerCase() &&
+            item.day === day &&
+            item.time === time
+        );
+
+        if (duplicateClass) {
+            alert("This class is already in your schedule!");
+            return;
+        }
+
         this.schedule.push({
             subject: subject,
             day: day,
@@ -390,7 +401,7 @@ class StudySpace {
         document.getElementById("gradeResult").textContent =
             "Your average is: " + average.toFixed(2);
     }
-    
+
 
     // Dark Mode
     toggleDarkMode() {
