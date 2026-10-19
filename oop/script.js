@@ -224,6 +224,7 @@ class StudySpace {
         noteInput.value = "";
     }
 
+
     displayNotes() {
 
         let notesList = document.getElementById("notesList");
@@ -234,13 +235,23 @@ class StudySpace {
 
             let li = document.createElement("li");
 
-            li.textContent = this.notes[i];
+            li.textContent = this.notes[i] + " ";
 
+            let deleteButton = document.createElement("button");
+
+            deleteButton.textContent = "Delete";
+
+            deleteButton.onclick = () => {
+                this.notes.splice(i, 1);
+                this.displayNotes();
+            };
+
+            li.appendChild(deleteButton);
             notesList.appendChild(li);
         }
     }
 
-
+    
     // Reminders
     setReminder() {
 
