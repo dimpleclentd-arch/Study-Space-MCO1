@@ -337,10 +337,7 @@ class StudySpace {
 
     // To-Do List
     addTask() {
-
-        let taskInput =
-            document.getElementById("taskInput");
-
+        let taskInput = document.getElementById("taskInput");
         let task = taskInput.value;
 
         if (task.trim() === "") {
@@ -348,13 +345,19 @@ class StudySpace {
             return;
         }
 
+        let duplicateTask = this.tasks.some((item) =>
+            item.toLowerCase() === task.trim().toLowerCase()
+        );
+
+        if (duplicateTask) {
+            alert("This task already exists!");
+            return;
+        }
+
         this.tasks.push(task);
-
         this.displayTasks();
-
         taskInput.value = "";
     }
-
 
 
     displayTasks() {
