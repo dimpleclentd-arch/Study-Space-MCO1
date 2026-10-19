@@ -64,6 +64,7 @@ function addClass() {
     document.getElementById("classTime").value = "";
 }
 
+
 function displaySchedule() {
     let scheduleList = document.getElementById("scheduleList");
 
@@ -75,8 +76,18 @@ function displaySchedule() {
         li.textContent =
             schedule[i].subject + " - " +
             schedule[i].day + " - " +
-            schedule[i].time;
+            schedule[i].time + " ";
 
+        let deleteButton = document.createElement("button");
+
+        deleteButton.textContent = "Delete";
+
+        deleteButton.onclick = function() {
+            schedule.splice(i, 1);
+            displaySchedule();
+        };
+
+        li.appendChild(deleteButton);
         scheduleList.appendChild(li);
     }
 }
@@ -159,29 +170,28 @@ function calculateGPA() {
 }
 
 
-function addNote() {
-    let noteInput = document.getElementById("noteInput");
-    let note = noteInput.value.trim();
 
-    if (note === "") {
-        alert("Please enter a note!");
-        return;
+function displayNotes() {
+    let notesList = document.getElementById("notesList");
+
+    notesList.innerHTML = "";
+
+    for (let i = 0; i < notes.length; i++) {
+        let li = document.createElement("li");
+
+        li.textContent = notes[i] + " ";
+
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+
+        deleteButton.onclick = function() {
+            notes.splice(i, 1);
+            displayNotes();
+        };
+
+        li.appendChild(deleteButton);
+        notesList.appendChild(li);
     }
-
-    let duplicateNote = notes.some((item) =>
-        item.toLowerCase() === note.toLowerCase()
-    );
-
-    if (duplicateNote) {
-        alert("This note already exists!");
-        return;
-    }
-
-    notes.push(note);
-
-    displayNotes();
-
-    noteInput.value = "";
 }
 
 // Reminders
