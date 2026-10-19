@@ -29,17 +29,25 @@ function saveStudentInfo() {
 // Class Schedule
 let schedule = [];
 
+
 function addClass() {
-    let subject = document.getElementById("subject").value;
+    let subject = document.getElementById("subject").value.trim();
     let day = document.getElementById("classDay").value;
     let time = document.getElementById("classTime").value;
 
-    if (
-        subject.trim() === "" ||
-        day.trim() === "" ||
-        time.trim() === ""
-    ) {
+    if (subject === "" || day === "" || time === "") {
         alert("Please complete the class schedule!");
+        return;
+    }
+
+    let duplicateClass = schedule.some((item) =>
+        item.subject.toLowerCase() === subject.toLowerCase() &&
+        item.day === day &&
+        item.time === time
+    );
+
+    if (duplicateClass) {
+        alert("This class is already in your schedule!");
         return;
     }
 
