@@ -59,6 +59,7 @@ class StudySpace {
             return;
         }
 
+
         let duplicateClass = this.schedule.some((item) =>
             item.subject.toLowerCase() === subject.toLowerCase() &&
             item.day === day &&
@@ -84,6 +85,7 @@ class StudySpace {
     }
 
 
+
     displaySchedule() {
 
         let scheduleList = document.getElementById("scheduleList");
@@ -97,14 +99,23 @@ class StudySpace {
             li.textContent =
                 this.schedule[i].subject + " - " +
                 this.schedule[i].day + " - " +
-                this.schedule[i].time;
+                this.schedule[i].time + " ";
 
+            let deleteButton = document.createElement("button");
+
+            deleteButton.textContent = "Delete";
+
+            deleteButton.onclick = () => {
+                this.schedule.splice(i, 1);
+                this.displaySchedule();
+            };
+
+            li.appendChild(deleteButton);
             scheduleList.appendChild(li);
         }
     }
 
-
-
+    
     // Fees Calculator
     calculateFees() {
 
