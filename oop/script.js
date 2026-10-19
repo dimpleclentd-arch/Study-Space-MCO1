@@ -115,7 +115,7 @@ class StudySpace {
         }
     }
 
-    
+
     // Fees Calculator
     calculateFees() {
 
@@ -196,14 +196,24 @@ class StudySpace {
     }
 
 
+
     // Study Notes
     addNote() {
 
         let noteInput = document.getElementById("noteInput");
-        let note = noteInput.value;
+        let note = noteInput.value.trim();
 
-        if (note.trim() === "") {
+        if (note === "") {
             alert("Please enter a note!");
+            return;
+        }
+
+        let duplicateNote = this.notes.some((item) =>
+            item.toLowerCase() === note.toLowerCase()
+        );
+
+        if (duplicateNote) {
+            alert("This note already exists!");
             return;
         }
 
@@ -213,7 +223,6 @@ class StudySpace {
 
         noteInput.value = "";
     }
-
 
     displayNotes() {
 
