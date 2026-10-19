@@ -259,6 +259,7 @@ function addTask() {
     taskInput.value = "";
 }
 
+
 function displayTasks() {
     let taskList = document.getElementById("taskList");
 
@@ -267,8 +268,17 @@ function displayTasks() {
     for (let i = 0; i < tasks.length; i++) {
         let li = document.createElement("li");
 
-        li.textContent = tasks[i];
+        li.textContent = tasks[i] + " ";
 
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+
+        deleteButton.onclick = function() {
+            tasks.splice(i, 1);
+            displayTasks();
+        };
+
+        li.appendChild(deleteButton);
         taskList.appendChild(li);
     }
 }
