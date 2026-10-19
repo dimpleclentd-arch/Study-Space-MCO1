@@ -113,17 +113,34 @@ function calculateFees() {
 
 
 // GPA Calculator
+
 function calculateGPA() {
-    let gpa1 = Number(document.getElementById("gpa1").value);
-    let gpa2 = Number(document.getElementById("gpa2").value);
-    let gpa3 = Number(document.getElementById("gpa3").value);
+    let gpa1Input = document.getElementById("gpa1").value;
+    let gpa2Input = document.getElementById("gpa2").value;
+    let gpa3Input = document.getElementById("gpa3").value;
 
     if (
-        document.getElementById("gpa1").value === "" ||
-        document.getElementById("gpa2").value === "" ||
-        document.getElementById("gpa3").value === ""
+        gpa1Input.trim() === "" ||
+        gpa2Input.trim() === "" ||
+        gpa3Input.trim() === ""
     ) {
         alert("Please enter all grades!");
+        return;
+    }
+
+    let gpa1 = Number(gpa1Input);
+    let gpa2 = Number(gpa2Input);
+    let gpa3 = Number(gpa3Input);
+
+    if (
+        !Number.isFinite(gpa1) ||
+        !Number.isFinite(gpa2) ||
+        !Number.isFinite(gpa3) ||
+        gpa1 < 0 || gpa1 > 5 ||
+        gpa2 < 0 || gpa2 > 5 ||
+        gpa3 < 0 || gpa3 > 5
+    ) {
+        alert("Please enter grades from 0 to 5!");
         return;
     }
 
