@@ -304,6 +304,21 @@ class StudySpace {
         }, 1000);
     }
 
+    
+    // Cancel Reminder
+    cancelReminder() {
+
+        if (this.reminderInterval !== null) {
+            clearInterval(this.reminderInterval);
+            this.reminderInterval = null;
+
+            document.getElementById("reminderResult").textContent =
+                "Reminder cancelled.";
+        } else {
+            document.getElementById("reminderResult").textContent =
+                "There is no active reminder.";
+        }
+    }
 
     // To-Do List
     addTask() {
