@@ -93,27 +93,36 @@ class StudySpace {
     }
 
 
+
     // Fees Calculator
     calculateFees() {
 
-        let tuitionFee = Number(
-            document.getElementById("tuitionFee").value
-        );
-
-        let miscFee = Number(
-            document.getElementById("miscFee").value
-        );
-
-        let otherFee = Number(
-            document.getElementById("otherFee").value
-        );
+        let tuitionInput = document.getElementById("tuitionFee").value;
+        let miscInput = document.getElementById("miscFee").value;
+        let otherInput = document.getElementById("otherFee").value;
 
         if (
-            document.getElementById("tuitionFee").value === "" ||
-            document.getElementById("miscFee").value === "" ||
-            document.getElementById("otherFee").value === ""
+            tuitionInput.trim() === "" ||
+            miscInput.trim() === "" ||
+            otherInput.trim() === ""
         ) {
             alert("Please enter all fees!");
+            return;
+        }
+
+        let tuitionFee = Number(tuitionInput);
+        let miscFee = Number(miscInput);
+        let otherFee = Number(otherInput);
+
+        if (
+            !Number.isFinite(tuitionFee) ||
+            !Number.isFinite(miscFee) ||
+            !Number.isFinite(otherFee) ||
+            tuitionFee < 0 ||
+            miscFee < 0 ||
+            otherFee < 0
+        ) {
+            alert("Please enter valid fees. Negative values are not allowed!");
             return;
         }
 
@@ -122,6 +131,7 @@ class StudySpace {
         document.getElementById("feesResult").textContent =
             "Total Fees: ₱" + totalFees.toFixed(2);
     }
+
 
 
     // GPA Calculator
