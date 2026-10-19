@@ -16,6 +16,21 @@ class StudySpace {
         this.timerInterval = null;
     }
 
+        // Clear All Notes
+    clearNotes() {
+        if (this.notes.length === 0) {
+            alert("There are no notes to clear!");
+            return;
+        }
+
+        let confirmClear = confirm("Are you sure you want to clear all notes?");
+
+        if (confirmClear) {
+            this.notes = [];
+            this.displayNotes();
+        }
+    }
+
 
     // Student Information
     saveStudentInfo() {
