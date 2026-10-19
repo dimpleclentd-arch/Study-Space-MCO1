@@ -134,27 +134,36 @@ class StudySpace {
 
 
 
+
     // GPA Calculator
     calculateGPA() {
 
-        let gpa1 = Number(
-            document.getElementById("gpa1").value
-        );
-
-        let gpa2 = Number(
-            document.getElementById("gpa2").value
-        );
-
-        let gpa3 = Number(
-            document.getElementById("gpa3").value
-        );
+        let gpa1Input = document.getElementById("gpa1").value;
+        let gpa2Input = document.getElementById("gpa2").value;
+        let gpa3Input = document.getElementById("gpa3").value;
 
         if (
-            document.getElementById("gpa1").value === "" ||
-            document.getElementById("gpa2").value === "" ||
-            document.getElementById("gpa3").value === ""
+            gpa1Input.trim() === "" ||
+            gpa2Input.trim() === "" ||
+            gpa3Input.trim() === ""
         ) {
             alert("Please enter all grades!");
+            return;
+        }
+
+        let gpa1 = Number(gpa1Input);
+        let gpa2 = Number(gpa2Input);
+        let gpa3 = Number(gpa3Input);
+
+        if (
+            !Number.isFinite(gpa1) ||
+            !Number.isFinite(gpa2) ||
+            !Number.isFinite(gpa3) ||
+            gpa1 < 0 || gpa1 > 5 ||
+            gpa2 < 0 || gpa2 > 5 ||
+            gpa3 < 0 || gpa3 > 5
+        ) {
+            alert("Please enter grades from 0 to 5!");
             return;
         }
 
@@ -348,30 +357,40 @@ class StudySpace {
     }
 
 
+
     // Grade Calculator
     calculateGrade() {
 
-        let grade1 =
-            Number(document.getElementById("grade1").value);
-
-        let grade2 =
-            Number(document.getElementById("grade2").value);
+        let grade1Input = document.getElementById("grade1").value;
+        let grade2Input = document.getElementById("grade2").value;
 
         if (
-            document.getElementById("grade1").value === "" ||
-            document.getElementById("grade2").value === ""
+            grade1Input.trim() === "" ||
+            grade2Input.trim() === ""
         ) {
             alert("Please enter both grades!");
+            return;
+        }
+
+        let grade1 = Number(grade1Input);
+        let grade2 = Number(grade2Input);
+
+        if (
+            !Number.isFinite(grade1) ||
+            !Number.isFinite(grade2) ||
+            grade1 < 0 || grade1 > 100 ||
+            grade2 < 0 || grade2 > 100
+        ) {
+            alert("Please enter grades from 0 to 100!");
             return;
         }
 
         let average = (grade1 + grade2) / 2;
 
         document.getElementById("gradeResult").textContent =
-            "Your average is: " +
-            average.toFixed(2);
+            "Your average is: " + average.toFixed(2);
     }
-
+    
 
     // Dark Mode
     toggleDarkMode() {
