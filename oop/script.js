@@ -251,7 +251,7 @@ class StudySpace {
         }
     }
 
-    
+
     // Reminders
     setReminder() {
 
@@ -326,10 +326,10 @@ class StudySpace {
     }
 
 
+
     displayTasks() {
 
-        let taskList =
-            document.getElementById("taskList");
+        let taskList = document.getElementById("taskList");
 
         taskList.innerHTML = "";
 
@@ -337,8 +337,18 @@ class StudySpace {
 
             let li = document.createElement("li");
 
-            li.textContent = this.tasks[i];
+            li.textContent = this.tasks[i] + " ";
 
+            let deleteButton = document.createElement("button");
+
+            deleteButton.textContent = "Delete";
+
+            deleteButton.onclick = () => {
+                this.tasks.splice(i, 1);
+                this.displayTasks();
+            };
+
+            li.appendChild(deleteButton);
             taskList.appendChild(li);
         }
     }
