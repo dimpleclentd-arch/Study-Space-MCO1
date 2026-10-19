@@ -194,6 +194,22 @@ function displayNotes() {
     }
 }
 
+
+function clearNotes() {
+    if (notes.length === 0) {
+        alert("There are no notes to clear!");
+        return;
+    }
+
+    let confirmClear = confirm("Are you sure you want to clear all notes?");
+
+    if (confirmClear) {
+        notes = [];
+        displayNotes();
+    }
+}
+
+
 // Reminders
 let reminderInterval = null;
 
