@@ -187,12 +187,22 @@ function setReminder() {
 // To-Do List
 let tasks = [];
 
+
 function addTask() {
     let taskInput = document.getElementById("taskInput");
-    let task = taskInput.value;
+    let task = taskInput.value.trim();
 
-    if (task.trim() === "") {
+    if (task === "") {
         alert("Please enter a task!");
+        return;
+    }
+
+    let duplicateTask = tasks.some((item) =>
+        item.toLowerCase() === task.toLowerCase()
+    );
+
+    if (duplicateTask) {
+        alert("This task already exists!");
         return;
     }
 
