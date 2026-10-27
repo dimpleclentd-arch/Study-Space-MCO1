@@ -209,6 +209,33 @@ function clearNotes() {
     }
 }
 
+// Study Notes
+let notes = [];
+
+function addNote() {
+    let noteInput = document.getElementById("noteInput");
+    let note = noteInput.value.trim();
+
+    if (note === "") {
+        alert("Please enter a note!");
+        return;
+    }
+
+    let duplicateNote = notes.some((item) =>
+        item.toLowerCase() === note.toLowerCase()
+    );
+
+    if (duplicateNote) {
+        alert("This note already exists!");
+        return;
+    }
+
+    notes.push(note);
+
+    noteInput.value = "";
+
+    displayNotes();
+}
 
 // Reminders
 let reminderInterval = null;
